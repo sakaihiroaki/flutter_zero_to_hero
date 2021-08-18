@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_bookmarks/router.dart';
 
 import 'page/bookmarks_page.dart';
 
 void main() {
+  setupRouter();
   runApp(const MyApp());
 }
 

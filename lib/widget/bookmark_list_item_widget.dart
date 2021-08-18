@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_bookmarks/router.dart';
 
 import '../model/bookmark.dart';
-import '../util/navigation_util.dart';
 
 class BookmarkListItemWidget extends StatelessWidget {
   const BookmarkListItemWidget({
@@ -24,9 +24,13 @@ class BookmarkListItemWidget extends StatelessWidget {
       ),
       trailing: Hero(
         tag: bookmark.link,
-        child: Icon(Icons.star, size: 40),
+        child: const Icon(Icons.star, size: 40),
       ),
-      onTap: () => navigatorToViewBoookmarkPage(bookmark, context),
+      onTap: () => router.navigateTo(
+        context,
+        'viewBookmarkPage',
+        routeSettings: RouteSettings(arguments: bookmark),
+      ),
     );
   }
 }

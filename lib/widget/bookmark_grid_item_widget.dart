@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../model/bookmark.dart';
-import '../util/navigation_util.dart';
+import '../router.dart';
 
 class BookmarkGridItemWidget extends StatelessWidget {
   const BookmarkGridItemWidget({
@@ -18,7 +18,11 @@ class BookmarkGridItemWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: InkWell(
-          onTap: () => navigatorToViewBoookmarkPage(bookmark, context),
+          onTap: () => router.navigateTo(
+            context,
+            'viewBookmarkPage',
+            routeSettings: RouteSettings(arguments: bookmark),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_bookmarks/widget/bookmark_list_item_widget.dart';
-import 'package:my_bookmarks/widget/bookmark_list_widget.dart';
 
 import '../model/bookmark.dart';
-import '../util/navigation_util.dart';
+import '../router.dart';
 import '../widget/bookmark_grid_widget.dart';
+import '../widget/bookmark_list_widget.dart';
 
 class BookmarksPage extends StatefulWidget {
   const BookmarksPage({Key? key}) : super(key: key);
@@ -54,7 +53,10 @@ class _BookmarksPageState extends State<BookmarksPage> {
   }
 
   Future<void> _onAddBurronPressed(BuildContext context) async {
-    final dynamic result = await navigatorToAddBoookmarkPage(context);
+    final dynamic result = await router.navigateTo(
+      context,
+      'addBookmarkPage',
+    );
 
     if (result != null && result is Bookmark) {
       setState(() {
